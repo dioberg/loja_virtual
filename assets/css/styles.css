@@ -114,6 +114,12 @@ main{
     width: 336px;
     height: 326px;
     flex-basis: 336px;
+    
+}
+
+.card__produto figure:hover{
+    border: 2px solid var(--brand_color);
+    cursor: pointer;
 }
 
 .card__produto figure, .produto__detalhes_images figure {
@@ -129,19 +135,26 @@ main{
     margin-block: 24px;
 }
 
-.card__produto_detalhes h4, .detalhes h4 {
+.card__produto_detalhes h4 {
     font-size: 18px;
     line-height: 28px;
+
+    /*ajuste aula 09*/
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
-.card__produto_detalhes h5, .detalhes h5 {
+.card__produto_detalhes h5 {
     font-size: 16px;
     line-height: 26px;
     font-weight: 500;
     color: var(--brand_color);
 }
 
-.card__produto h6, .detalhes h6 {
+.card__produto h6 {
     font-size: 20px;
     line-height: 30px;
     font-family: "Space Grotesk", sans-serif;
@@ -294,4 +307,183 @@ main{
     color: var(--white);
     cursor: pointer;
     font-size: 16px;
+}
+
+/* aula 08 
+detalhes do produto - nome, descricao do preco
+*/
+
+.detalhes  {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.detalhes h4 {
+    font-size: 24px;
+}
+
+.detalhes h5 {
+    font-size: 16px;
+    color: var(--brand_color);
+}
+
+.detalhes h6 {
+    font-size: 24px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+/* tamanho */
+
+.tamanho h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.tamanhos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.numeros {
+    height: 40px;
+    border: 1px solid #ccc;
+
+    /* aula 10 */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.numeros:hover {
+    border-color: var(--dark);
+    cursor: pointer;
+}
+
+.radio{
+    display: none;
+}
+
+.selecionado {
+    border-color: var(--dark);
+}
+
+/* descricao - texto descrito*/
+.descricao {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+}
+
+.descricao p {
+    margin-bottom: 10px;
+}
+
+.descricao ul {
+    margin-left: 20px;
+}
+
+/* frete */
+
+details::marker,
+summary::marker {
+    content: '';
+}
+
+summary {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.icone-expandir::after,
+.icone-recolher::after {
+    content: '';
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    background-image: url('../image/keyboard_arrow_down.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 5px;
+}
+
+.icone-recolher::after {
+    background-image: url("../image/keyboard_arrow_up.svg");
+}
+
+details {
+    font-size: 15px;
+}
+
+details p {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+.input {
+    margin-block: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.input input {
+    width: 100%;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+}
+
+.input button {
+    font: 20px;
+    font-weight: 500;
+    width: 120px;
+    height: 40px;
+    background-color: var(--white);
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    margin-right: 5px;
+}
+
+.input button:hover {
+    border-color:  #222;
+}
+
+details a {
+    color: var(--dark);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.voltar {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.voltar:hover {
+    cursor: pointer;
+    border: 2px solid var(--brand_color);
+}
+
+
+/* produto__detalhes */
+
+.numeros {
+
 }
