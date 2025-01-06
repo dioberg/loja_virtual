@@ -191,9 +191,40 @@ atualizarCarrinho = (cart) => {
             </tr>
         `
     })
-}
+    //aula 14 - R$&nbsp;1.123,45 -> 1123.45
+    const total = cart.reduce((valorAcumulado, item) => {
+        return valorAcumulado + parseFloat(item.preco.replace('R$&nbsp;', '').replace('.', '').replace(',','.'))
+    },0)
+    document.querySelector('.coluna_total').innerHTML = numberFormat.format(total) //1123.45
 
+    acaoBotaoApagar()
+}
+//aular 13 e 14
 const numeroItens = document.querySelector('.numero_itens')
+numeroItens.style.display = 'none' //ocultar numero de item no carrinho
 const atualizarNumeroItens = () => {
+    (cart.length > 0) ? numeroItens.style.display = 'block' : numeroItens.style.display =  'none'
     numeroItens.innerHTML = cart.length
 }
+
+//aula 14 - apagar
+const acaoBotaoApagar = () => {
+    const botaoApagar = document.querySelectorAll('.coluna_apagar span')
+    botaoApagar.forEach(botao => {
+        botao.addEventListener('click', () => {
+            console.log('apagar')
+            const id = botao.getAttribute('data-id')
+            console.log(id)
+            const posicao = cart.findIndex(item => item.id == id)
+            cart.splice(posicao, 1)
+            atualizarCarrinho(cart)
+        })
+    })
+
+    atualizarNumeroItens()
+}
+
+
+//selecionar o span do id e ocultar ele
+const spanId = document.querySelector('.detalhes span')
+spanId.style.display = 'none'
