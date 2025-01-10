@@ -210,13 +210,60 @@
                     </tr>
                 </tfoot>
             </table>
+            
+            <!-- detalhes do carrinho -->
+             <div class="carrinho__detalhes">
+                <div class="frete">
+                    <label for="cep2">Prazo de entrega</label>
+                    <div class="input">
+                        <input type="text" id="cep2" placeholder="00000-000">
+                        <button type="button" class="btn_calcular">Calcular</button>
+                    </div>
+                    <p>Tempo previsto para entrega</p>
+                    <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank" rel="noopener noreferrer">Não sei meu CEP</a>
+                </div>
+
+                <div class="cupom_desconto">
+                    <label for="cupom">Cupom de desconto</label>
+                    <div class="input">
+                        <input type="text" id="cupom" >
+                        <button type="button" class="btn_aplicar">Aplicar</button>
+                    </div>
+                    <span class="desconto_cupom"></span>
+                </div>
+
+                <div class="resumo">
+                    <h3>Resumo</h3>
+                    <ul>
+                        <li>
+                            <span>Valor dos predutos</span>
+                            <span class="sub_total"></span>
+                        </li>
+                        <li>
+                            <span>Frete</span>
+                            <span class="valor_frete"></span>
+                        </li>
+                        <li>
+                            <span>Desconto</span>
+                            <span class="valor_desconto"></span>
+                        </li>
+                        <li>
+                            <span>Total da compra</span>
+                            <span class="total_compra"></span>
+                        </li>
+
+                    </ul>
+                    <button type="button" class="btn_continuar ">Continuar</button>
+                </div>
+             </div>
 
         </section>
         
     </main>
 
 
-
-    <script src="./assets/js/script.js"></script>
+    
+    <script src="./assets/js/utils.js" type="module"></script>
+    <script src="./assets/js/script.js" type="module"></script>
 </body>
 </html>
