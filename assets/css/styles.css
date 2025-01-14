@@ -47,6 +47,12 @@ body{
 .topo__marca h1 {
     font-size: 24px;
 }
+.botao_continuar button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
 
 .btn__carrinho {
     position: relative;
@@ -363,7 +369,7 @@ main{
 }
 
 .botao button, .btn_continuar {
-    width: 100%;
+    width: 200px;
     height: 50px;
     border-radius: 50px;
     border: 0;
@@ -371,7 +377,9 @@ main{
     color: var(--white);
     cursor: pointer;
     font-size: 16px;
+
 }
+
 
 /* aula 08 
 detalhes do produto - nome, descricao do preco
@@ -602,3 +610,36 @@ table td {
 tfoot {
     text-align: right;
 }
+
+
+/* aula 18*/
+
+.identificacao, .pagamento {
+    margin-top: 50px;
+    padding-inline: 20px;
+    width: 100%;
+}
+
+.identificacao h2, .pagamento h2 {
+    text-align: center;
+}
+
+.pagamento h3 {
+    margin-block: 10px;
+}
+
+
+.form_identificacao .botao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn__finalizar_compra .botao, .bloco_politica {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+

@@ -32,6 +32,8 @@ btnCarrinho.addEventListener('click', () => {
     ocultarElemento(sectionHero)
     ocultarElemento(sectionProdutos)
     ocultarElemento(sectionDetalhesProduto)
+    ocultarElemento(sectionIdentificacao)
+    ocultarElemento(sectionPagamento)
 })
 
 const btnHome = document.querySelector('.link_home')
@@ -40,6 +42,8 @@ btnHome.addEventListener('click', (event) => {
     ocultarElemento(sectionCarrinho)
     mostrarElemento(sectionHero, 'flex')
     mostrarElemento(sectionProdutos, 'flex')
+    ocultarElemento(sectionIdentificacao)
+    ocultarElemento(sectionPagamento)
     
     ocultarVoltarEsecaoDetalhes()
 })
@@ -246,3 +250,33 @@ const spanTotalCompra = document.querySelector('.total_compra')
 
 spanFrete.innerHTML = numberFormatBR.format(valorFrete)
 spanDesconto.innerHTML = numberFormatBR.format(valorDesconto)
+
+
+
+// aula 18
+const sectionIdentificacao = document.querySelector('.identificacao')
+const sectionPagamento = document.querySelector('.pagamento')
+
+ocultarElemento(sectionIdentificacao)
+ocultarElemento(sectionPagamento)
+
+const btnContinuarCarrinho = document.querySelector('.btn_continuar')
+btnContinuarCarrinho.addEventListener('click', () => {
+    mostrarElemento(sectionIdentificacao)
+    ocultarElemento(sectionCarrinho)
+})
+
+
+const btn_finalizar_cadrasto = document.querySelector('.btn_finalizar_cadrasto')
+btn_finalizar_cadrasto.addEventListener('click', () => {
+    mostrarElemento(sectionPagamento)
+    ocultarElemento(sectionIdentificacao)
+})
+
+const btnFinalizarCompra = document.querySelector('.btn_finalizar_compra')
+btnFinalizarCompra.addEventListener('click', () => {
+    ocultarElemento(sectionPagamento)
+    mostrarElemento(sectionHero, 'flex')
+    mostrarElemento(sectionProdutos, 'flex')
+})
+
