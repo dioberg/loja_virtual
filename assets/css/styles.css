@@ -643,3 +643,17 @@ tfoot {
     justify-content: center;
 }
 
+/* validacao  do formulario*/
+
+.campo_invalido {
+    border-color:  red !important;
+}
+
+.campo_valido {
+    border-color:  green !important;
+}
+
+.erro {
+    color: red;
+    margin-left: 5px;
+}

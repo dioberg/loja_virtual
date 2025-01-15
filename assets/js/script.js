@@ -266,42 +266,62 @@ btnContinuarCarrinho.addEventListener('click', () => {
     ocultarElemento(sectionCarrinho)
 })
 
+// aula 20 validacoes   
+const formularioIdentificacao = document.querySelector('.form_identificacao')
+const todosCamposObrigatorios = formularioIdentificacao.querySelectorAll('[required]')
+const todosCampos = formularioIdentificacao.querySelectorAll('input')
+
+const pegarDados = () => {
+    const dados = {}
+    todosCampos.forEach(campo => {
+        dados[campo.id] = campo.value.trim()
+    })
+    return dados
+}
 
 const btn_finalizar_cadrasto = document.querySelector('.btn_finalizar_cadrasto')
 btn_finalizar_cadrasto.addEventListener('click', (event) => {
     // mostrarElemento(sectionPagamento)
     // ocultarElemento(sectionIdentificacao)
     event.preventDefault()
-
-    const  nome = document.querySelector('#nome').value
-    const  email = document.querySelector('#email').value
-    const  telefone = document.querySelector('#tel').value
-    const  cep = document.querySelector('#cep1').value
-    const  endereco = document.querySelector('#endereco').value
-    const  numero = document.querySelector('#numero').value
-    const  bairro = document.querySelector('#bairro').value
-    const  complemento = document.querySelector('#complemento').value
-    const  cidade = document.querySelector('#cidade').value
-    const  estado = document.querySelector('#estado').value
-    const  concordo = document.querySelector('#concordo').checked
-
     // validacoes
 
-    const cadastro = {
-        nome,
-        email,
-        telefone,
-        cep,
-        endereco,
-        numero,
-        bairro,
-        complemento,
-        cidade,
-        estado,
-        concordo
-    }
+    // pegar dados
 
-    console.log(cadastro)
+
+    console.log(pegarDados())
+})
+
+// validacao  onblur
+todosCamposObrigatorios.forEach(campo => {
+     
+    const emailRegex = /\S+@\S+\.\S+/
+
+    campo.addEventListener('blur', (e) => {
+        if(campo.value !== "" && e.target.type !== "email") {
+            campo.classList.add('campo_valido')
+            campo.classList.remove('campo_invalido')
+            campo.nextElementSibling.innerHTML = ""
+        }else {
+            campo.classList.add('campo_invalido')
+            campo.classList.remove('campo_valido')
+            campo.nextElementSibling.innerHTML = `${campo.id} é obrigatório`
+        }
+
+        if(emailRegex.test(e.target.value)) {
+            campo.classList.add('campo_valido')
+            campo.classList.remove('campo_invalido')
+            campo.nextElementSibling.innerHTML = "" 
+        }
+
+        if(e.target.type === "checkbox" && !e.target.checked) {
+            campo.parentElement.classList.add('erro')
+
+        }else{
+            campo.parentElement.classList.remove("erro")
+        }
+
+    })
 })
 
 const btnFinalizarCompra = document.querySelector('.btn_finalizar_compra')
