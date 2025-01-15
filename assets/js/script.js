@@ -279,17 +279,50 @@ const pegarDados = () => {
     return dados
 }
 
+const validacaoDoFormulario = () => {
+
+    let formularioValido = true
+
+    todosCamposObrigatorios.forEach(campoObrigatorio => {
+        const isEmpty = campoObrigatorio.value.trim()  === "" 
+        const isNotChecked = campoObrigatorio.type === "checkbox" && !campoObrigatorio.checked
+
+        if(isEmpty) {
+            campoObrigatorio.classList.add('campo_invalido')
+            campoObrigatorio.nextElementSibling.textContent = `${campoObrigatorio.id} é obrigatório`
+            formularioValido = false
+        }else {
+            campoObrigatorio.classList.add('campo_valido')
+            campoObrigatorio.classList.remove('campo_invalido')
+            campoObrigatorio.nextElementSibling.textContent = ""
+
+        }
+
+        if(isNotChecked) {
+            campoObrigatorio.parentElement.classList.add('erro')
+            formularioValido = false
+        }else {
+            campoObrigatorio.parentElement.classList.remove('erro')
+        }
+    })
+
+    return formularioValido
+}
+
 const btn_finalizar_cadrasto = document.querySelector('.btn_finalizar_cadrasto')
 btn_finalizar_cadrasto.addEventListener('click', (event) => {
     // mostrarElemento(sectionPagamento)
     // ocultarElemento(sectionIdentificacao)
     event.preventDefault()
+
     // validacoes
+    validacaoDoFormulario()
 
     // pegar dados
-
-
-    console.log(pegarDados())
+    if(validacaoDoFormulario()) {
+        console.log(pegarDados())
+    }
+    
 })
 
 // validacao  onblur
