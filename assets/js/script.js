@@ -364,3 +364,43 @@ btnFinalizarCompra.addEventListener('click', () => {
     mostrarElemento(sectionProdutos, 'flex')
 })
 
+// aula 22
+
+const buscarCep = async (cep) => {
+    const url = `https://viacep.com.br/ws/${cep}/json/` 
+    const response = await fetch(url)
+    const data = await response.json()
+    return data 
+}
+
+document.querySelector('#cep1').addEventListener('blur', async (e) => {
+    const cep = e.target.value
+    if(!cep) {
+        limparCampos()
+        return
+    }
+    
+    const resposta = await buscarCep(cep)
+    if(resposta.erro) {
+        limparCampos()
+        return
+    }
+    preencherCampos(resposta)
+    document.querySelector('#numero').focus()
+})
+
+const limparCampos = () => {
+    document.querySelector('#endereco').value = ""
+    document.querySelector('#bairro').value = ""
+    document.querySelector('#cidade').value = ""
+    document.querySelector('#estado').value = ""
+}
+
+
+const preencherCampos = (resposta) => {
+    document.querySelector('#endereco').value = resposta.logradouro
+    document.querySelector('#bairro').value = resposta.bairro
+    document.querySelector('#cidade').value = resposta.localidade
+    document.querySelector('#estado').value = resposta.uf
+}
+
