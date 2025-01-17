@@ -28,12 +28,14 @@ botaoVoltar.addEventListener('click', () => {
 
 const btnCarrinho = document.querySelector('.btn__carrinho .icone')
 btnCarrinho.addEventListener('click', () => {
-    mostrarElemento(sectionCarrinho)
-    ocultarElemento(sectionHero)
-    ocultarElemento(sectionProdutos)
-    ocultarElemento(sectionDetalhesProduto)
-    ocultarElemento(sectionIdentificacao)
-    ocultarElemento(sectionPagamento)
+    if(numeroItens.innerHTML > 0) {
+        mostrarElemento(sectionCarrinho)
+        ocultarElemento(sectionHero)
+        ocultarElemento(sectionProdutos)
+        ocultarElemento(sectionDetalhesProduto)
+        ocultarElemento(sectionIdentificacao)
+        ocultarElemento(sectionPagamento)
+    }
 })
 
 const btnHome = document.querySelector('.link_home')
@@ -321,6 +323,10 @@ btn_finalizar_cadrasto.addEventListener('click', (event) => {
     // pegar dados
     if(validacaoDoFormulario()) {
         console.log(pegarDados())
+        localStorage.setItem('dados', JSON.stringify(pegarDados()))
+        formularioIdentificacao.reset()
+        mostrarElemento(sectionPagamento)
+        ocultarElemento(sectionIdentificacao)
     }
     
 })
