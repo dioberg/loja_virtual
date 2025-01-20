@@ -410,3 +410,107 @@ const preencherCampos = (resposta) => {
     document.querySelector('#estado').value = resposta.uf
 }
 
+//aula - 25
+
+const btnOpenLogin = document.querySelector('#btn_open_login')
+const modalLogin = document.querySelector('.modal_login')
+const overlayLogin = document.querySelector('.modal_overlay')
+const btnCloseLogin = document.querySelector('.btn_close_login')
+
+btnOpenLogin.addEventListener('click', () => {
+    mostrarModal()
+})
+
+document.addEventListener('click', (event) => {
+    if(event.target === overlayLogin || event.target === btnCloseLogin) {
+        fecharModal()
+    }
+})
+
+const mostrarModal = () => {
+    modalLogin.classList.add('show')
+    overlayLogin.classList.add('show')
+}
+
+const fecharModal = () => {
+   modalLogin.classList.remove('show')
+   overlayLogin.classList.remove('show')
+}
+
+//controle de login
+const nomeUsuario = document.querySelector('#nome_usuario')
+const btnLogOut = document.querySelector('#btn_logOut')
+const formularioLogar = document.querySelector('.form_logar')
+const emailLogin = document.querySelector('#email_login')
+const senhaLogin = document.querySelector('#senha_login')   
+
+ocultarElemento(btnLogOut) //esconder o botao de sair
+
+
+formularioLogar.addEventListener('submit', (e) => {
+    e.preventDefault()
+    //peagar dados e avaliar para autorizar entrada 
+    console.log(emailLogin.value, senhaLogin.value)
+    nomeUsuario.innerHTML = emailLogin.value
+    mostrarElemento(btnLogOut)
+    formularioLogar.reset()
+    fecharModal()
+})
+
+const logout = () => {
+    ocultarElemento(btnLogOut)
+    nomeUsuario.innerHTML = ""
+}
+
+btnLogOut.addEventListener('click', logout)
+
+// aula 26 modal cadastrar usuario  
+const modalCadastrarUsuario = document.querySelector('.modal_cadastrar_usuario')
+const overlayCadastrarUsuario = document.querySelector('.modal_overlay_cadastrar')
+const btnCloseCadastrar = document.querySelector('.btn_close_cadastrar')
+const linkCadastrar = document.querySelector('.link_cadastrar')
+
+linkCadastrar.addEventListener('click', (e) => {
+    e.preventDefault()
+    fecharModal() 
+    modalCadastrarUsuario.classList.add('show')
+    overlayCadastrarUsuario.classList.add('show')
+})
+btnCloseCadastrar.addEventListener('click', () => {
+    modalCadastrarUsuario.classList.remove('show')
+    overlayCadastrarUsuario.classList.remove('show')
+})
+
+
+const formularioCadastrarUsuario = document.querySelector('.form_cadastrar_usuario')
+const formAviso = document.querySelector('.form_aviso')
+
+formularioCadastrarUsuario.addEventListener('submit', (e) => {
+    e.preventDefault()
+    //pegar dos dados, validar e autenticar
+    const email = document.querySelector('#email_usuario').value
+    const senha = document.querySelector('#senha_usuario').value
+    const confirmaSenha = document.querySelector('#confirma_senha_usuario').value
+
+    //validacao
+    const mensagemSenhaInvalida = senha.length < 5 ? "Senha deve ter pelo menos 5 caracteres" : "Senha e confirmação de senha não conferem"
+    if(senha.length < 5 || senha !== confirmaSenha) {
+        formAviso.innerHTML = mensagemSenhaInvalida
+        return
+    }
+
+    //autenticar - login
+    formularioCadastrarUsuario.reset()
+    formAviso.innerHTML = ""
+    modalCadastrarUsuario.classList.remove('show')
+    overlayCadastrarUsuario.classList.remove('show')
+    const usuario = {
+        email: email,
+        senha: senha
+    }
+    console.log(usuario)
+
+    nomeUsuario.innerHTML = usuario.email
+    mostrarElemento(btnLogOut)
+})
+

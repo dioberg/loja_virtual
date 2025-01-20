@@ -670,3 +670,144 @@ tfoot {
     color: red;
     margin-left: 5px;
 }
+
+
+
+.icone {
+    user-select: none;
+}
+
+/* modal ou pop-up login */
+.modal_login {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background-color: var(--white_soft);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Certifique-se de que o pop-up apareça acima de outro conteúdo */
+}
+
+.modal_login h2 {
+    text-align: center;
+}
+
+.modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9; /* Posicione atrás do pop-up */
+}
+
+.modal_login.hidden, .modal_overlay.hidden {
+    display: none;
+}
+
+.modal_login.show, .modal_overlay.show {
+    display: block;
+}
+
+.btn_close_login {
+    position: absolute;
+    right: 16px;
+    top: 20px;
+    text-align: center;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+.btn_close_login:hover {
+    font-weight: bold;
+    color: #fff;
+    background-color: #222;
+}
+
+.modal_login .botao {
+    margin-top: 20px;
+}
+
+/* modal ou pop-up login */
+.modal_login, .modal_cadastrar_usuario {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: auto; /* 300px */
+    background-color: var(--white_soft);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Certifique-se de que o pop-up apareça acima de outro conteúdo */
+}
+
+.modal_login h2, .modal_cadastrar_usuario h2 {
+    text-align: center;
+}
+
+.modal_overlay, .modal_overlay_cadastrar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9; /* Posicione atrás do pop-up */
+}
+
+.modal_login.hidden, .modal_overlay.hidden, .hidden {
+    display: none;
+}
+
+.modal_login.show, .modal_overlay.show, .show {
+    display: block;
+}
+
+.btn_close_login, .btn_close_cadastrar {
+    position: absolute;
+    right: 16px;
+    top: 20px;
+    text-align: center;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+.btn_close_login:hover, .btn_close_cadastrar:hover {
+    font-weight: bold;
+    color: #fff;
+    background-color: #222;
+}
+
+.modal_login .botao, .botao {
+    margin-top: 20px;
+}
+
+/* modal cadastrar usuario */
+.centralizar {
+    text-align: center;
+}
+
+.link_cadastrar {
+    color: var(--dark);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.link_cadastrar:hover {
+    text-decoration: underline;
+}

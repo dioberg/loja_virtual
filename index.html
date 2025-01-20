@@ -33,10 +33,11 @@
             </div>
 
             <div class="btn__carrinho_user">
-                <span class="material-symbols-outlined icone">
+                <span id="btn_open_login" class="material-symbols-outlined icone">
                     identity_platform
                 </span>
-                <span>User</span>
+                <span id="nome_usuario"></span>
+                <span id="btn_logOut">Sair</span>
             </div>
         </div>   
     </header>
@@ -270,6 +271,65 @@
              </div>
 
         </section>
+
+                <!-- modal logar usuario -->
+        <section class="modal_login hidden">
+
+            <h2>Entrar</h2>
+            <span class="btn_close_login">X</span>
+
+            <form class="form_logar">
+                <div class="input">
+                    <label for="email_login">E-mail</label>
+                    <input type="email" id="email_login" autofocus required />
+                </div>
+                <div class="input">
+                    <label for="senha_login">Senha</label>
+                    <input type="password" id="senha_login" required />
+                </div>
+                <div class="botao">
+                    <button type="submit" class="btn_logar">Entrar</button>
+                </div>
+
+                <div class="centralizar">
+                    <a href="" class="link_cadastrar">Cadastrar usuário</a>
+                </div>
+
+            </form>
+
+        </section>
+        <div class="modal_overlay hidden"></div>
+        <!-- /modal logar usuario -->
+        <!-- modal cadastrar usuario -->
+        <section class="modal_cadastrar_usuario hidden">
+
+            <h2>Cadastrar</h2>
+            <span class="btn_close_cadastrar">X</span>
+
+            <form class="form_cadastrar_usuario">
+                <div class="input">
+                    <label for="email_usuario">E-mail</label>
+                    <input type="email" placeholder="user@mail.com" id="email_usuario" autofocus required />
+                </div>
+                <div class="input">
+                    <label for="senha_login">Senha</label>
+                    <input type="password" placeholder="mínimo 5 caracteres" id="senha_usuario" required />
+                </div>
+                <div class="input">
+                    <label for="confirma_senha_login">Confirme a Senha</label>
+                    <input type="password" id="confirma_senha_usuario" required />
+                </div>
+                <div class="botao">
+                    <button type="submit" class="btn_cadastrar">Cadastrar</button>
+                </div>
+                <div class="centralizar">
+                    <span class="form_aviso"></span>
+                </div>
+            </form>
+
+        </section>
+        <div class="modal_overlay_cadastrar hidden"></div>
+        <!-- /modal cadastrar usuario -->    
 
       <section class="identificacao">
         <h2>Identificação</h2>
