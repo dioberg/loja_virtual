@@ -54,6 +54,12 @@ body{
     justify-content: center ;
 }
 
+.botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .btn__carrinho {
     position: relative;
     display: flex; 
@@ -381,7 +387,7 @@ main{
     width: 100%;
 }
 
-.botao button, .btn_continuar {
+.botao button, .btn_continuar, .btn_criar_conta, .btn_fazer_login {
     width: 200px;
     height: 50px;
     border-radius: 50px;
@@ -810,4 +816,42 @@ tfoot {
 
 .link_cadastrar:hover {
     text-decoration: underline;
+}
+
+/* aula 27 */
+.identifique-se {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 70px;
+    gap: 20px;
+}
+
+.identifique-se span {
+    text-align: center;
+}
+
+.identifique-se h2, .identifique-se h3 {
+    margin-bottom: 20px;
+}
+
+.criar_conta, .entrar {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn {
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #ccc;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

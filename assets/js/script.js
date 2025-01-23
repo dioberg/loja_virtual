@@ -264,8 +264,10 @@ ocultarElemento(sectionPagamento)
 
 const btnContinuarCarrinho = document.querySelector('.btn_continuar')
 btnContinuarCarrinho.addEventListener('click', () => {
-    mostrarElemento(sectionIdentificacao)
+    // mostrarElemento(sectionIdentificacao)
     ocultarElemento(sectionCarrinho)
+    //aula 27
+    mostrarElemento(sectionIdentifiqueSe, 'flex')
 })
 
 // aula 20 validacoes   
@@ -416,9 +418,12 @@ const btnOpenLogin = document.querySelector('#btn_open_login')
 const modalLogin = document.querySelector('.modal_login')
 const overlayLogin = document.querySelector('.modal_overlay')
 const btnCloseLogin = document.querySelector('.btn_close_login')
+const btnFazerLogin = document.querySelector('.btn_fazer_login')//aula 27
 
-btnOpenLogin.addEventListener('click', () => {
-    mostrarModal()
+document.addEventListener('click', (e) => {
+    if(e.target === btnOpenLogin || e.target === btnFazerLogin) {
+        mostrarModal()
+    }
 })
 
 document.addEventListener('click', (event) => {
@@ -455,6 +460,9 @@ formularioLogar.addEventListener('submit', (e) => {
     mostrarElemento(btnLogOut)
     formularioLogar.reset()
     fecharModal()
+    //aula 27
+    ocultarElemento(sectionIdentifiqueSe)
+    mostrarElemento(sectionPagamento)
 })
 
 const logout = () => {
@@ -469,13 +477,17 @@ const modalCadastrarUsuario = document.querySelector('.modal_cadastrar_usuario')
 const overlayCadastrarUsuario = document.querySelector('.modal_overlay_cadastrar')
 const btnCloseCadastrar = document.querySelector('.btn_close_cadastrar')
 const linkCadastrar = document.querySelector('.link_cadastrar')
+const btnCriarConta = document.querySelector('.btn_criar_conta')
 
-linkCadastrar.addEventListener('click', (e) => {
-    e.preventDefault()
-    fecharModal() 
-    modalCadastrarUsuario.classList.add('show')
-    overlayCadastrarUsuario.classList.add('show')
+document.addEventListener('click', (e) => {
+    if(e.target === linkCadastrar || e.target === btnCriarConta) {
+        e.preventDefault()
+        fecharModal() 
+        modalCadastrarUsuario.classList.add('show')
+        overlayCadastrarUsuario.classList.add('show')
+    }
 })
+
 btnCloseCadastrar.addEventListener('click', () => {
     modalCadastrarUsuario.classList.remove('show')
     overlayCadastrarUsuario.classList.remove('show')
@@ -509,8 +521,15 @@ formularioCadastrarUsuario.addEventListener('submit', (e) => {
         senha: senha
     }
     console.log(usuario)
-
     nomeUsuario.innerHTML = usuario.email
     mostrarElemento(btnLogOut)
+
+    //aula 27
+    ocultarElemento(sectionIdentifiqueSe)
+    mostrarElemento(sectionPagamento)
 })
 
+// aula 27
+
+const sectionIdentifiqueSe = document.querySelector('.identifique-se') 
+ocultarElemento(sectionIdentifiqueSe)
